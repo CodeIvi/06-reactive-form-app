@@ -4,6 +4,7 @@ import { SideMenu } from "./shared/components/side-menu/side-menu";
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, SideMenu],
   templateUrl: './app.html',
   styleUrl: './app.css'

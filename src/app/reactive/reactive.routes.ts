@@ -6,26 +6,32 @@ import { SwitchesPage } from "./pages/switches-page/switches-page";
 
 export const reactiveRoutes: Routes = [
     {
-        path: 'basic',
-        title: 'Básicos',
-        component: BasicPage,
+        path: '',
+        children: [
+            {
+                path: 'basic',
+                title: 'Básicos',
+                component: BasicPage,
 
-    },
-    {
-        path: 'dynamic',
-        title: 'Dinámicos',
-        component: DynamicPage,
+            },
+            {
+                path: 'dynamic',
+                title: 'Dinámicos',
+                component: DynamicPage,
 
-    },
-    {
-        path: 'switches',
-        title: 'Switches',
-        component: SwitchesPage,
+            },
+            {
+                path: 'switches',
+                title: 'Switches',
+                component: SwitchesPage,
 
-    },
-    {
-        path: '**',
-        component: BasicPage,
+            },
+            {
+                path: '**',
+                component: BasicPage,
+            },
+        ]
     }
+
 
 ]
