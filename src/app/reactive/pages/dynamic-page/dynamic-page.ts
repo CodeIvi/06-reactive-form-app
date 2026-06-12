@@ -24,13 +24,24 @@ export class DynamicPage {
       Validators.minLength(3))
   })
 
-  get favoriteGames(){
+  newFavorite = this.fb.control("", Validators.required);
+
+  get favoriteGames() {
     return this.myForm.get('favoriteGames') as FormArray;
   }
 
-  // isValidFielinArray(formArray: FormArray, index:number){
-  //   return (
-  //     formArray.controls[index].errors && formArray.controls[index].touched
-  //   );
-  // }
+  onAddFavorites() {
+    if (this.newFavorite.invalid) return;
+    const newGame = this.newFavorite.value;
+
+    this.favoriteGames.push(this.fb.control(newGame, Validators.required))
+  }
+
+  onDeleteFavorite(index: number) {
+    this.favoriteGames.removeAt(index);
+  }
+
+  onSubmit(){
+    this.myForm.markAllAsTouched();
+  }
 }
